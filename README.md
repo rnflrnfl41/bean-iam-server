@@ -1,6 +1,6 @@
-# Spring MSA Boilerplate
+# bean-iam-server
 
-> Spring Boot 3.3 + Spring Cloud 2023 기반의 OAuth2/OIDC 인증 서버, BFF(Backend for Frontend), API Gateway, 서비스 디스커버리, 공통 인프라 라이브러리를 한 번에 제공하는 마이크로서비스 스타터 키트입니다.
+> bean-iam-server는 Spring Boot 3.3 + Spring Cloud 2023 기반의 OAuth2/OIDC 인증 서버, BFF(Backend for Frontend), API Gateway, 서비스 디스커버리, 공통 인프라 라이브러리를 한 번에 제공하는 마이크로서비스 스타터 키트입니다.
 
 ## 📋 프로젝트 한눈에
 
@@ -181,7 +181,7 @@ sequenceDiagram
 ## 📁 디렉터리 구조
 
 ```
-spring-msa-boilerplate/
+bean-iam-server/
 ├── authServer/
 │   ├── config/
 │   │   ├── AuthorizationServerConfig.java
