@@ -461,10 +461,23 @@ get oauth2:code:{code}
 - Redis 메모리 사용량 모니터링
 - 토큰 갱신 빈도 추적
 
-## 💡 향후 확장 아이디어
+## 🗺️ 진행 예정 (Roadmap)
 
+### 단기 계획
+- [ ] **app-bff-server 모듈 개발**
+  - 모바일 앱 전용 BFF 서버 구축
+  - 기존 `web-bff-server`와 동일한 OAuth2/OIDC 클라이언트 패턴 적용
+  - 모바일 앱 특화 토큰 관리 및 API 프록시 제공
+
+### 중장기 계획
+- [ ] **미용실 매장 관리 앱과의 통합**
+  - 별도 프로젝트로 개발 중인 미용실 매장 관리 앱과 `bean-iam-server` 통합
+  - 현재 `authServer`를 **통합 인증 서버(Unified Auth Server)**로 활용
+  - 미용실 앱 사용자 인증/권한 관리를 중앙화
+  - `app-bff-server`를 통해 모바일 앱과 통합 인증 서버 간 OAuth2/OIDC 플로우 연결
+
+### 향후 확장 아이디어
 - [ ] Config Server / 중앙 환경 설정
-- [ ] Backend 서비스 예제(주문/상품) + Gateway 라우팅 코드
 - [ ] 다중 OAuth2 클라이언트, PKCE, Device Flow 등 추가 플로우
 - [ ] Web BFF에서 SSE/WebSocket/GraphQL 프록시 패턴 실험
 - [ ] Observability (Prometheus, Zipkin, Grafana) 연동
