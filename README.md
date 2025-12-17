@@ -202,11 +202,32 @@ get oauth2:code:{code}
 - Access Token 만료 → 자동 Refresh·Cookie 갱신 → API 재호출이 성공적으로 이어지는지 점검
 - Refresh Token 만료 시 `/logout` 호출과 함께 Redis Authorization, 블랙리스트 키가 정리되는지 확인
 
-## 🚀 향후 확장 아이디어
-- Frontend 별 도메인에 맞는 다중 Redirect URI 및 PKCE 강화
-- Observability (Prometheus, Zipkin, Grafana) 연동
-- API Gateway/Eureka 같은 MSA 토폴로지로 확장 후 다중 백엔드 서비스 연결
-- Push/SSE 기반 토큰 만료 알림 및 사전 갱신 메커니즘
+### 모니터링
+- Actuator 엔드포인트 활용 (`/actuator/health`, `/actuator/metrics`)
+- Redis 메모리 사용량 모니터링
+- 토큰 갱신 빈도 추적
+
+## 🗺️ 진행 예정 (Roadmap)
+
+### 단기 계획
+- [ ] **app-bff-server 모듈 개발**
+  - 모바일 앱 전용 BFF 서버 구축
+  - 기존 `web-bff-server`와 동일한 OAuth2/OIDC 클라이언트 패턴 적용
+  - 모바일 앱 특화 토큰 관리 및 API 프록시 제공
+
+### 중장기 계획
+- [ ] **미용실 매장 관리 앱과의 통합**
+  - 별도 프로젝트로 개발 중인 미용실 매장 관리 앱과 `bean-iam-server` 통합
+  - 현재 `authServer`를 **통합 인증 서버(Unified Auth Server)**로 활용
+  - 미용실 앱 사용자 인증/권한 관리를 중앙화
+  - `app-bff-server`를 통해 모바일 앱과 통합 인증 서버 간 OAuth2/OIDC 플로우 연결
+
+### 향후 확장 아이디어
+- [ ] Config Server / 중앙 환경 설정
+- [ ] 다중 OAuth2 클라이언트, PKCE, Device Flow 등 추가 플로우
+- [ ] Web BFF에서 SSE/WebSocket/GraphQL 프록시 패턴 실험
+- [ ] Observability (Prometheus, Zipkin, Grafana) 연동
+- [ ] 토큰 만료 알림 및 사전 갱신 메커니즘
 
 ## 🤝 기여하기
 1. Fork & Clone
